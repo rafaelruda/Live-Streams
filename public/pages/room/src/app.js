@@ -15,8 +15,10 @@ const onload = () => {
   // recorderBtn.addEventListener('click', recordClick(recorderBtn))
 
   const view = new View();
+  const media = new Media();
+  const deps = { view, media, room };
 
-  view.renderVideo({ userId: "teste01", url: "" });
+  Business.initialize(deps);
 };
 
 window.onload = onload;
