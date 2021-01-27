@@ -20,7 +20,7 @@ class Business {
   }
 
   async _init() {
-    this.currentStream = await this.media.getCamera(true);
+    this.currentStream = await this.media.getCamera();
 
     this.socket = this.socketBuilder.setOnUserConnected(this.onUserConnected()).setOnUserDisconnected(this.onUserDisconnected()).build();
 
@@ -37,7 +37,7 @@ class Business {
   addVideoStream(userId, stream = this.currentStream) {
     const isCurrentId = false;
 
-    this.view.renderVideo({ userId, stream, isCurrentId, muted: false });
+    this.view.renderVideo({ userId, stream, isCurrentId });
   }
 
   onUserDisconnected = function () {
